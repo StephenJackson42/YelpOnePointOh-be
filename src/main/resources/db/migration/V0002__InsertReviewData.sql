@@ -1,0 +1,1 @@
+insert into reviews (body, score, author, business_name) values ('quality products, knowledgable staff', 9, 'Stephen Jackson', 'Guitar Center');

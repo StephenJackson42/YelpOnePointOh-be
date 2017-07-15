@@ -1,0 +1,1 @@
+alter table reviews add column date datetime not null default NOW();
