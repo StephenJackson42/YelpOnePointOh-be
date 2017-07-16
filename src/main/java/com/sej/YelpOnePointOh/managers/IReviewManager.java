@@ -11,6 +11,6 @@ public interface IReviewManager {
 	ViewReview createReview(ViewReview review);
 	ViewReview updateReview(Long reviewId, ViewReview review);
 	ViewReview deleteReview(Long reviewId);
-	List<ViewReview> getReviewsInDateRange(Long startDate, Long endDate);
+	
 	
 }

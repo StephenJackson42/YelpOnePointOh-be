@@ -36,12 +36,9 @@ public class ReviewControllerV1 {
 	}
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	List<ViewReview> getReviewsByParams(@RequestParam(value = "startDate", required = false) Long startDate,
-			@RequestParam(value = "endDate", required = false) Long endDate,
+	List<ViewReview> getReviewsByParams(
 			@RequestParam(value = "author", required = false) String author) {
-		if (startDate != null && endDate != null) {
-			return reviewManager.getReviewsInDateRange(startDate, endDate);
-		} else if (author != null) {
+		if (author != null) {
 			return reviewManager.getReviewsByAuthor(author);
 		} else {
 			return Collections.emptyList();

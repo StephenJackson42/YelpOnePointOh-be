@@ -10,13 +10,7 @@ public class ReviewEngine implements IReviewEngine {
 
 	private static final Integer SUMMARY_LENGTH = 256;
 
-	@Override
-	public boolean isPostInDateRange(ViewReview review, Long startDate, Long endDate) {
-		if (review != null && review.getDate() > startDate && review.getDate() < endDate) {
-			return true;
-		}
-		return false;
-	}
+	
 
 	@Override
 	public String getSummaryText(String text) {

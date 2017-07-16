@@ -75,11 +75,6 @@ public class ReviewManager implements IReviewManager {
 		return reviewConverter.domainToView(review);
 	}
 
-	@Override
-	public List<ViewReview> getReviewsInDateRange(Long startDate, Long endDate) {
-		return reviewAccessor.findAll().stream().map(reviewConverter::domainToView).filter(review -> {
-			return reviewEngine.isPostInDateRange(review, startDate, endDate);
-		}).collect(Collectors.toList());
-	}
+	
 
 }

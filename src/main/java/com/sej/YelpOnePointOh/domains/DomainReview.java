@@ -30,8 +30,7 @@ public class DomainReview {
 	@Column(name = "business_name")
 	private String businessName;
 
-	@Column(name = "date")
-	private LocalDateTime date;
+	
 
 	public Long getReviewId() {
 		return reviewId;
@@ -73,18 +72,12 @@ public class DomainReview {
 		this.businessName = businessName;
 	}
 
-	public LocalDateTime getDate() {
-		return date;
-	}
-
-	public void setDate(LocalDateTime date) {
-		this.date = date;
-	}
+	
 
 	@Override
 	public String toString() {
 		return "DomainReview [reviewId=" + reviewId + ", body=" + body + ", score=" + score + ", author=" + author
-				+ ", businessName=" + businessName + ", date=" + date + "]";
+				+ ", businessName=" + businessName + "]";
 	}
 
 	@Override
@@ -94,7 +87,6 @@ public class DomainReview {
 		result = prime * result + ((author == null) ? 0 : author.hashCode());
 		result = prime * result + ((body == null) ? 0 : body.hashCode());
 		result = prime * result + ((businessName == null) ? 0 : businessName.hashCode());
-		result = prime * result + ((date == null) ? 0 : date.hashCode());
 		result = prime * result + ((reviewId == null) ? 0 : reviewId.hashCode());
 		result = prime * result + score;
 		return result;
@@ -123,11 +115,6 @@ public class DomainReview {
 			if (other.businessName != null)
 				return false;
 		} else if (!businessName.equals(other.businessName))
-			return false;
-		if (date == null) {
-			if (other.date != null)
-				return false;
-		} else if (!date.equals(other.date))
 			return false;
 		if (reviewId == null) {
 			if (other.reviewId != null)

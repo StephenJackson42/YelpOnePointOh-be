@@ -8,8 +8,14 @@ public class ViewReview {
 	private int score;
 	private String author;
 	private String businessName;
-	private Long date;
+	private String summary;
 	
+	public String getSummary() {
+		return summary;
+	}
+	public void setSummary(String summary) {
+		this.summary = summary;
+	}
 	public Long getReviewId() {
 		return reviewId;
 	}
@@ -40,16 +46,11 @@ public class ViewReview {
 	public void setBusinessName(String businessName) {
 		this.businessName = businessName;
 	}
-	public Long getDate() {
-		return date;
-	}
-	public void setDate(Long date) {
-		this.date = date;
-	}
+	
 	@Override
 	public String toString() {
 		return "ViewReview [reviewId=" + reviewId + ", body=" + body + ", score=" + score + ", author=" + author
-				+ ", businessName=" + businessName + ", date=" + date + "]";
+				+ ", businessName=" + businessName +  ", summary=" + summary + "]";
 	}
 	@Override
 	public int hashCode() {
@@ -58,9 +59,9 @@ public class ViewReview {
 		result = prime * result + ((author == null) ? 0 : author.hashCode());
 		result = prime * result + ((body == null) ? 0 : body.hashCode());
 		result = prime * result + ((businessName == null) ? 0 : businessName.hashCode());
-		result = prime * result + ((date == null) ? 0 : date.hashCode());
 		result = prime * result + ((reviewId == null) ? 0 : reviewId.hashCode());
 		result = prime * result + score;
+		result = prime * result + ((summary == null) ? 0 : summary.hashCode());
 		return result;
 	}
 	@Override
@@ -87,11 +88,6 @@ public class ViewReview {
 				return false;
 		} else if (!businessName.equals(other.businessName))
 			return false;
-		if (date == null) {
-			if (other.date != null)
-				return false;
-		} else if (!date.equals(other.date))
-			return false;
 		if (reviewId == null) {
 			if (other.reviewId != null)
 				return false;
@@ -99,8 +95,14 @@ public class ViewReview {
 			return false;
 		if (score != other.score)
 			return false;
+		if (summary == null) {
+			if (other.summary != null)
+				return false;
+		} else if (!summary.equals(other.summary))
+			return false;
 		return true;
 	}
+	
 	
 	
 	

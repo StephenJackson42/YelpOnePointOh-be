@@ -1,4 +1,4 @@
-create Table reviews(
+create table reviews(
 	review_id	bigserial primary key,
 	body	varchar,
 	score	varchar,
