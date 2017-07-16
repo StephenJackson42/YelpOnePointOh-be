@@ -1,8 +1,7 @@
 create Table reviews(
 	review_id	bigserial primary key,
 	body	varchar,
-	score	int not null,
+	score	varchar,
 	author	varchar,
-	business_name	varchar
-	
+	business_name	varchar	
 )
