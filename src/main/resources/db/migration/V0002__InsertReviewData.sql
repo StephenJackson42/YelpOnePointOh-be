@@ -1,1 +1,3 @@
-insert into reviews (body, score, author, business_name) values ('quality products, knowledgable staff', 9, 'Stephen Jackson', 'Guitar Center');
+insert into reviews (body, score, author, business_name) values
+	('great experience','9','Stephen Jackson','Guitar Center'),
+	('I hated everything', '0','Ralph Nadar', 'Whole Foods');
