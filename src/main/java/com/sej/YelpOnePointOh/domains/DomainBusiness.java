@@ -1,10 +1,15 @@
 package com.sej.YelpOnePointOh.domains;
 
+import java.util.Collection;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -15,6 +20,7 @@ public class DomainBusiness {
 	@Column(name = "business_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long businessId;
+	
 	
 	@Column(name = "business_name")
 	private String businessName;
@@ -30,6 +36,12 @@ public class DomainBusiness {
 	
 	@Column(name = "description")
 	private String description;
+	
+
+	
+
+
+	
 
 	public Long getBusinessId() {
 		return businessId;
@@ -81,8 +93,8 @@ public class DomainBusiness {
 
 	@Override
 	public String toString() {
-		return "DomainBusiness [businessId=" + businessId + ", business_name=" + businessName + ", address=" + address
-				+ ", website=" + website + ", hours=" + hours + ", description=" + description + "]";
+		return "DomainBusiness [businessId=" + businessId + ", businessName=" + businessName + ", address=" + address
+				+ ", website=" + website + ", hours=" + hours + ", description=" + description + ", reviews=" + "]";
 	}
 
 	@Override
@@ -94,6 +106,7 @@ public class DomainBusiness {
 		result = prime * result + ((businessName == null) ? 0 : businessName.hashCode());
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		result = prime * result + ((hours == null) ? 0 : hours.hashCode());
+		
 		result = prime * result + ((website == null) ? 0 : website.hashCode());
 		return result;
 	}
@@ -132,6 +145,7 @@ public class DomainBusiness {
 				return false;
 		} else if (!hours.equals(other.hours))
 			return false;
+		
 		if (website == null) {
 			if (other.website != null)
 				return false;
@@ -139,6 +153,8 @@ public class DomainBusiness {
 			return false;
 		return true;
 	}
+
+	
 	
 	
 	
