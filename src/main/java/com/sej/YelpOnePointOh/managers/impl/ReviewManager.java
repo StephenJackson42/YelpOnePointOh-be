@@ -41,9 +41,9 @@ public class ReviewManager implements IReviewManager {
 	}
 
 	@Override
-	public List<ViewReview> getReviewsByAuthor(String author) {
+	public List<ViewReview> getReviewsByBusinessName(String businessName) {
 		// TODO Auto-generated method stub
-		return reviewAccessor.findAllByAuthor(author).stream().map(reviewConverter::domainToView)
+		return reviewAccessor.findAllByBusinessName(businessName).stream().map(reviewConverter::domainToView)
 				.collect(Collectors.toList());
 	}
 
