@@ -37,9 +37,9 @@ public class ReviewControllerV1 {
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	List<ViewReview> getReviewsByParams(
-			@RequestParam(value = "author", required = false) String author) {
-		if (author != null) {
-			return reviewManager.getReviewsByAuthor(author);
+			@RequestParam(value = "businessName", required = false) String businessName) {
+		if (businessName != null) {
+			return reviewManager.getReviewsByBusinessName(businessName);
 		} else {
 			return Collections.emptyList();
 		}
