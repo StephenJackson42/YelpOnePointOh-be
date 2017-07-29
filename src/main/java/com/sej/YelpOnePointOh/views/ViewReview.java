@@ -9,7 +9,14 @@ public class ViewReview {
 	private String author;
 	private String businessName;
 	private String summary;
+	private String link;
 	
+	public String getLink() {
+		return link;
+	}
+	public void setLink(String link) {
+		this.link = link;
+	}
 	public String getSummary() {
 		return summary;
 	}
@@ -46,11 +53,10 @@ public class ViewReview {
 	public void setBusinessName(String businessName) {
 		this.businessName = businessName;
 	}
-	
 	@Override
 	public String toString() {
 		return "ViewReview [reviewId=" + reviewId + ", body=" + body + ", score=" + score + ", author=" + author
-				+ ", businessName=" + businessName +  ", summary=" + summary + "]";
+				+ ", businessName=" + businessName + ", summary=" + summary + ", link=" + link + "]";
 	}
 	@Override
 	public int hashCode() {
@@ -59,6 +65,7 @@ public class ViewReview {
 		result = prime * result + ((author == null) ? 0 : author.hashCode());
 		result = prime * result + ((body == null) ? 0 : body.hashCode());
 		result = prime * result + ((businessName == null) ? 0 : businessName.hashCode());
+		result = prime * result + ((link == null) ? 0 : link.hashCode());
 		result = prime * result + ((reviewId == null) ? 0 : reviewId.hashCode());
 		result = prime * result + score;
 		result = prime * result + ((summary == null) ? 0 : summary.hashCode());
@@ -88,6 +95,11 @@ public class ViewReview {
 				return false;
 		} else if (!businessName.equals(other.businessName))
 			return false;
+		if (link == null) {
+			if (other.link != null)
+				return false;
+		} else if (!link.equals(other.link))
+			return false;
 		if (reviewId == null) {
 			if (other.reviewId != null)
 				return false;
@@ -102,6 +114,7 @@ public class ViewReview {
 			return false;
 		return true;
 	}
+	
 	
 	
 	

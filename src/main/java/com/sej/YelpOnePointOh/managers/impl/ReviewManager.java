@@ -45,7 +45,7 @@ public class ReviewManager implements IReviewManager {
 		// TODO Auto-generated method stub
 		return reviewAccessor.findAllByBusinessName(businessName).stream().map(reviewConverter::domainToView)
 				.collect(Collectors.toList());
-	}
+	}	
 
 	@Override
 	public ViewReview createReview(ViewReview review) {

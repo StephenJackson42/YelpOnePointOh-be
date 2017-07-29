@@ -35,8 +35,21 @@ public class DomainReview {
 	@Column(name = "business_name")
 	private String businessName;
 	
+	@Column(name = "link")
+	private String link;
 	
 	
+	
+	
+	
+
+	public String getLink() {
+		return link;
+	}
+
+	public void setLink(String link) {
+		this.link = link;
+	}
 
 	public Long getReviewId() {
 		return reviewId;
@@ -78,12 +91,10 @@ public class DomainReview {
 		this.businessName = businessName;
 	}
 
-	
-
 	@Override
 	public String toString() {
 		return "DomainReview [reviewId=" + reviewId + ", body=" + body + ", score=" + score + ", author=" + author
-				+ ", businessName=" + businessName + "]";
+				+ ", businessName=" + businessName + ", link=" + link + "]";
 	}
 
 	@Override
@@ -93,6 +104,7 @@ public class DomainReview {
 		result = prime * result + ((author == null) ? 0 : author.hashCode());
 		result = prime * result + ((body == null) ? 0 : body.hashCode());
 		result = prime * result + ((businessName == null) ? 0 : businessName.hashCode());
+		result = prime * result + ((link == null) ? 0 : link.hashCode());
 		result = prime * result + ((reviewId == null) ? 0 : reviewId.hashCode());
 		result = prime * result + score;
 		return result;
@@ -122,6 +134,11 @@ public class DomainReview {
 				return false;
 		} else if (!businessName.equals(other.businessName))
 			return false;
+		if (link == null) {
+			if (other.link != null)
+				return false;
+		} else if (!link.equals(other.link))
+			return false;
 		if (reviewId == null) {
 			if (other.reviewId != null)
 				return false;
@@ -131,6 +148,10 @@ public class DomainReview {
 			return false;
 		return true;
 	}
+
+	
+
+
 	
 	
 	
