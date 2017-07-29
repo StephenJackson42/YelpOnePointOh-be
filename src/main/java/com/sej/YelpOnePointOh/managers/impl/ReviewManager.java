@@ -7,6 +7,8 @@ import java.util.stream.Collectors;
 import javax.persistence.EntityNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Component;
 
 import com.sej.YelpOnePointOh.accessors.IReviewAccessor;
@@ -25,6 +27,18 @@ public class ReviewManager implements IReviewManager {
 	IReviewConverter reviewConverter;
 	@Autowired
 	private IReviewEngine reviewEngine;
+	@Autowired
+    public JavaMailSender emailSender;
+	
+	public void sendSimpleMessage(
+		      String to, String subject, String text) {		        
+		        SimpleMailMessage message = new SimpleMailMessage(); 
+		        message.setTo(to); 
+		        message.setSubject(subject); 
+		        message.setText(text);
+		        emailSender.send(message);		        
+		    }
+	
 	
 	@Override
 	public List<ViewReview> getAllReviews() {
@@ -50,6 +64,7 @@ public class ReviewManager implements IReviewManager {
 	@Override
 	public ViewReview createReview(ViewReview review) {
 		// TODO Auto-generated method stub
+		sendSimpleMessage("stephenejackson93@gmail.com", "review created", review.toString());
 		return reviewConverter.domainToView(reviewAccessor.save(reviewConverter.viewToDomain(review)));
 	}
 
@@ -62,6 +77,7 @@ public class ReviewManager implements IReviewManager {
 			throw new InvalidParameterException(
 					"Provided post id: " + reviewId + " does not match provided post: " + review);
 		}
+		sendSimpleMessage("stephenejackson93@gmail.com", "review updated", review.toString());
 		return reviewConverter.domainToView(reviewAccessor.save(reviewConverter.viewToDomain(review)));
 	}
 
