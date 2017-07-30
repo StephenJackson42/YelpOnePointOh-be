@@ -9,10 +9,16 @@ public class ViewBusiness {
 	private String description;
 	private String summaryText;
 	
-	public String getSummary(){
+	
+	
+	public String getSummaryText() {
 		return summaryText;
 	}
-	
+
+	public void setSummaryText(String summaryText) {
+		this.summaryText = summaryText;
+	}
+
 	public Long getBusinessId() {
 		return businessId;
 	}

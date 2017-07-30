@@ -37,7 +37,7 @@ public class BusinessControllerV1 {
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	List<ViewBusiness> getReviewsByParams(
-			@RequestParam(value = "website", required = false) String businessName) {
+			@RequestParam(value = "businessName", required = false) String businessName) {
 		if (businessName != null) {
 			return businessManager.findAllByBusinessName(businessName);
 		} else {

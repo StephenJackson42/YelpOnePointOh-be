@@ -4,6 +4,6 @@
 	score	varchar,
 	author	varchar,
 	business_name	varchar,
-	link 	varchar,
+	link 	varchar
 	
 )

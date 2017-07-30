@@ -71,7 +71,9 @@ public class BusinessManager implements IBusinessManager {
 		if (business == null) {
 			throw new EntityNotFoundException("Unable to retrieve post: " + businessId.toString());
 		}
-		businessAccessor.delete(businessId);
+		System.out.println(businessId.toString());
+		businessAccessor.delete(business);
+		System.out.println(business.toString());
 		return businessConverter.domainToView(business);
 	}
 	

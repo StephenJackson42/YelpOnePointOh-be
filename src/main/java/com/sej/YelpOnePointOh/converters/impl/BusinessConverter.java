@@ -24,6 +24,8 @@ public class BusinessConverter implements IBusinessConverter {
 		domainBusiness.setWebsite(viewBusiness.getWebsite());
 		domainBusiness.setHours(viewBusiness.getHours());
 		domainBusiness.setDescription(viewBusiness.getDescription());
+		
+		
 		return domainBusiness;
 	}
 
@@ -36,7 +38,9 @@ public class BusinessConverter implements IBusinessConverter {
 		viewBusiness.setWebsite(domainBusiness.getWebsite());
 		viewBusiness.setHours(domainBusiness.getHours());
 		viewBusiness.setDescription(domainBusiness.getDescription());
-		viewBusiness.setSummary(businessEngine.getSummaryText(viewBusiness.getDescription()));
+		viewBusiness.setSummaryText(businessEngine.getSummaryText(viewBusiness.getDescription()));
+		
+		
 		return viewBusiness;
 		
 		
