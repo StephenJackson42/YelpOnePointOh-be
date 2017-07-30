@@ -23,7 +23,6 @@ public class ReviewConverter implements IReviewConverter {
 		domainReview.setReviewId(viewReview.getReviewId());
 		domainReview.setAuthor(viewReview.getAuthor());
 		domainReview.setBody(viewReview.getBody());
-		domainReview.setBusinessName(viewReview.getBusinessName());
 		domainReview.setScore(viewReview.getScore());
 		domainReview.setLink(viewReview.getLink());
 	
@@ -36,7 +35,6 @@ public class ReviewConverter implements IReviewConverter {
 		viewReview.setReviewId(domainToView.getReviewId());
 		viewReview.setAuthor(domainToView.getAuthor());
 		viewReview.setBody(domainToView.getBody());
-		viewReview.setBusinessName(domainToView.getBusinessName());
 		viewReview.setScore(domainToView.getScore());	
 		viewReview.setSummary(reviewEngine.getSummaryText(viewReview.getBody()));
 		viewReview.setLink(domainToView.getLink());

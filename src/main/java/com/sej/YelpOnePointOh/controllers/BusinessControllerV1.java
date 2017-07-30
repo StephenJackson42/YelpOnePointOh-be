@@ -31,12 +31,12 @@ public class BusinessControllerV1 {
 	}
 	
 	@RequestMapping(value = "/{businessId}", method = RequestMethod.GET)
-	ResponseEntity<ViewBusiness> getReview(@PathVariable Long businessId) {
+	ResponseEntity<ViewBusiness> getBusiness(@PathVariable Long businessId) {
 		return new ResponseEntity<>( businessManager.getBusinessById(businessId), HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	List<ViewBusiness> getReviewsByParams(
+	List<ViewBusiness> geBusinessByParams(
 			@RequestParam(value = "businessName", required = false) String businessName) {
 		if (businessName != null) {
 			return businessManager.findAllByBusinessName(businessName);
@@ -56,7 +56,7 @@ public class BusinessControllerV1 {
 	}
 	
 	@RequestMapping(value = "/{businessId}", method = RequestMethod.PUT)
-	ResponseEntity<ViewBusiness> updateReview(@PathVariable Long businessId, @RequestBody ViewBusiness business) {
+	ResponseEntity<ViewBusiness> updateBusiness(@PathVariable Long businessId, @RequestBody ViewBusiness business) {
 		return new ResponseEntity<>( businessManager.updateBusiness(businessId,business), HttpStatus.OK);
 	}
 	
