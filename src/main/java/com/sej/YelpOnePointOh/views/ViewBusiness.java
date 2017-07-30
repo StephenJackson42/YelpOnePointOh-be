@@ -1,5 +1,10 @@
 package com.sej.YelpOnePointOh.views;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.sej.YelpOnePointOh.domains.DomainReview;
+
 public class ViewBusiness {
 	private Long businessId;
 	private String businessName;
@@ -8,11 +13,27 @@ public class ViewBusiness {
 	private String hours;
 	private String description;
 	private String summaryText;
+	private List<DomainReview> reviewList = new ArrayList<>();
+
 	
-	public String getSummary(){
+	
+	
+	public List<DomainReview> getReviewList() {
+		return reviewList;
+	}
+
+	public void setReviewList(List<DomainReview> reviewList) {
+		this.reviewList = reviewList;
+	}
+
+	public String getSummaryText() {
 		return summaryText;
 	}
-	
+
+	public void setSummaryText(String summaryText) {
+		this.summaryText = summaryText;
+	}
+
 	public Long getBusinessId() {
 		return businessId;
 	}
@@ -49,11 +70,14 @@ public class ViewBusiness {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
 	@Override
 	public String toString() {
-		return "viewBusiness [business_id=" + businessId + ", business_name=" + businessName + ", address=" + address
-				+ ", website=" + website + ", hours=" + hours + ", description=" + description + "]";
+		return "ViewBusiness [businessId=" + businessId + ", businessName=" + businessName + ", address=" + address
+				+ ", website=" + website + ", hours=" + hours + ", description=" + description + ", summaryText="
+				+ summaryText + ", reviewList=" + reviewList + "]";
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -63,9 +87,12 @@ public class ViewBusiness {
 		result = prime * result + ((businessName == null) ? 0 : businessName.hashCode());
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		result = prime * result + ((hours == null) ? 0 : hours.hashCode());
+		result = prime * result + ((reviewList == null) ? 0 : reviewList.hashCode());
+		result = prime * result + ((summaryText == null) ? 0 : summaryText.hashCode());
 		result = prime * result + ((website == null) ? 0 : website.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -100,6 +127,16 @@ public class ViewBusiness {
 				return false;
 		} else if (!hours.equals(other.hours))
 			return false;
+		if (reviewList == null) {
+			if (other.reviewList != null)
+				return false;
+		} else if (!reviewList.equals(other.reviewList))
+			return false;
+		if (summaryText == null) {
+			if (other.summaryText != null)
+				return false;
+		} else if (!summaryText.equals(other.summaryText))
+			return false;
 		if (website == null) {
 			if (other.website != null)
 				return false;
@@ -107,10 +144,7 @@ public class ViewBusiness {
 			return false;
 		return true;
 	}
-	public void setSummary(String summaryText) {
-		this.summaryText = summaryText;
-		
-	}
+	
 	
 	
 }
