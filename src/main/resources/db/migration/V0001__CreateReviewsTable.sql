@@ -3,6 +3,7 @@
 	body	varchar,
 	score	varchar,
 	author	varchar,
-	link 	varchar
+	link 	varchar,
+	business_id bigint
 	
 )

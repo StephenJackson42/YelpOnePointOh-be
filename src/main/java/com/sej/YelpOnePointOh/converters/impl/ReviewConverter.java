@@ -1,6 +1,8 @@
 package com.sej.YelpOnePointOh.converters.impl;
 
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +27,10 @@ public class ReviewConverter implements IReviewConverter {
 		domainReview.setBody(viewReview.getBody());
 		domainReview.setScore(viewReview.getScore());
 		domainReview.setLink(viewReview.getLink());
+		domainReview.setDomainBusiness(viewReview.getDomainBusiness());
+		
+		
+		domainReview.getDomainBusiness().setReviewList(new ArrayList<>());
 	
 		return domainReview;
 	}
@@ -38,6 +44,9 @@ public class ReviewConverter implements IReviewConverter {
 		viewReview.setScore(domainToView.getScore());	
 		viewReview.setSummary(reviewEngine.getSummaryText(viewReview.getBody()));
 		viewReview.setLink(domainToView.getLink());
+		viewReview.setDomainBusiness(domainToView.getDomainBusiness());
+		
+		viewReview.getDomainBusiness().setReviewList(new ArrayList<>());
 		return viewReview;
 	}
 

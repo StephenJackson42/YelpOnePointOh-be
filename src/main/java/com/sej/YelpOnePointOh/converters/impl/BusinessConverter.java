@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.sej.YelpOnePointOh.converters.IBusinessConverter;
 import com.sej.YelpOnePointOh.domains.DomainBusiness;
-
+import com.sej.YelpOnePointOh.domains.DomainReview;
 import com.sej.YelpOnePointOh.engines.IBusinessEngine;
 import com.sej.YelpOnePointOh.views.ViewBusiness;
 
@@ -24,7 +24,11 @@ public class BusinessConverter implements IBusinessConverter {
 		domainBusiness.setWebsite(viewBusiness.getWebsite());
 		domainBusiness.setHours(viewBusiness.getHours());
 		domainBusiness.setDescription(viewBusiness.getDescription());
+		domainBusiness.setReviewList(viewBusiness.getReviewList());
 		
+		for (int i = 0 ; domainBusiness.getReviewList().size() < 0 ; i++  ){
+			domainBusiness.getReviewList().get(i).setDomainBusiness(null);
+		}
 		
 		return domainBusiness;
 	}
@@ -39,6 +43,16 @@ public class BusinessConverter implements IBusinessConverter {
 		viewBusiness.setHours(domainBusiness.getHours());
 		viewBusiness.setDescription(domainBusiness.getDescription());
 		viewBusiness.setSummaryText(businessEngine.getSummaryText(viewBusiness.getDescription()));
+		viewBusiness.setReviewList(domainBusiness.getReviewList());
+		
+		/*for (int i=0; viewBusiness.getReviewList().size() < 0; i++){
+			viewBusiness.getReviewList().get(i).setDomainBusiness(null);
+		}
+		*/
+		for(DomainReview review:viewBusiness.getReviewList()){
+			review.setDomainBusiness(null);
+		}
+		
 		
 		
 		return viewBusiness;

@@ -1,6 +1,7 @@
 package com.sej.YelpOnePointOh.managers.impl;
 
 import java.security.InvalidParameterException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -48,6 +49,8 @@ public class BusinessManager implements IBusinessManager {
 
 	@Override
 	public ViewBusiness createBusiness(ViewBusiness business) {
+		
+		
 		return businessConverter.domainToView(businessAccessor.save(businessConverter.viewToDomain(business)));
 
 	}
@@ -71,10 +74,9 @@ public class BusinessManager implements IBusinessManager {
 		if (business == null) {
 			throw new EntityNotFoundException("Unable to retrieve post: " + businessId.toString());
 		}
-		System.out.println(businessId.toString());
-		businessAccessor.delete(business);
-		System.out.println(business.toString());
-		return businessConverter.domainToView(business);
+		List list = business.getReviewList();
+		businessAccessor.delete(businessId);
+		return new ViewBusiness();
 	}
 	
 	
