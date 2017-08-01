@@ -39,9 +39,7 @@ public class DomainBusiness {
 	@Column(name = "description")
 	private String description;
 	
-	@OneToMany
-	@JoinColumn(name="business_name")
-	private List<DomainReview> reviews = new ArrayList<DomainReview>();
+	
 
 	public Long getBusinessId() {
 		return businessId;
@@ -91,18 +89,12 @@ public class DomainBusiness {
 		this.description = description;
 	}
 
-	public List<DomainReview> getReviews() {
-		return reviews;
-	}
-
-	public void setReviews(List<DomainReview> reviews) {
-		this.reviews = reviews;
-	}
+	
 
 	@Override
 	public String toString() {
 		return "DomainBusiness [businessId=" + businessId + ", businessName=" + businessName + ", address=" + address
-				+ ", website=" + website + ", hours=" + hours + ", description=" + description + ", reviews=" + reviews
+				+ ", website=" + website + ", hours=" + hours + ", description=" + description + ", reviews=" 
 				+ "]";
 	}
 
@@ -115,7 +107,6 @@ public class DomainBusiness {
 		result = prime * result + ((businessName == null) ? 0 : businessName.hashCode());
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		result = prime * result + ((hours == null) ? 0 : hours.hashCode());
-		result = prime * result + ((reviews == null) ? 0 : reviews.hashCode());
 		result = prime * result + ((website == null) ? 0 : website.hashCode());
 		return result;
 	}
@@ -154,11 +145,7 @@ public class DomainBusiness {
 				return false;
 		} else if (!hours.equals(other.hours))
 			return false;
-		if (reviews == null) {
-			if (other.reviews != null)
-				return false;
-		} else if (!reviews.equals(other.reviews))
-			return false;
+		
 		if (website == null) {
 			if (other.website != null)
 				return false;
